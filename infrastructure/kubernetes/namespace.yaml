@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: banking360
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: banking360-sa
+  namespace: banking360

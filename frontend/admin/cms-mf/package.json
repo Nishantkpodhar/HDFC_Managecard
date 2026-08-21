@@ -1,0 +1,41 @@
+{
+  "name": "@banking360/admin-cms-mf",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "lint": "eslint src --ext ts,tsx",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "@banking360/api-contracts": "workspace:*",
+    "@banking360/auth-client": "workspace:*",
+    "@banking360/design-system": "workspace:*",
+    "@banking360/feature-flags": "workspace:*",
+    "@banking360/frontend-events": "workspace:*",
+    "@banking360/shared-types": "workspace:*",
+    "@banking360/telemetry": "workspace:*",
+    "lucide-react": "^0.344.0",
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0",
+    "react-redux": "^9.0.0",
+    "react-router-dom": "^6.28.0"
+  },
+  "devDependencies": {
+    "@banking360/eslint-config": "workspace:*",
+    "@banking360/tsconfig": "workspace:*",
+    "@testing-library/jest-dom": "^6.4.0",
+    "@testing-library/react": "^16.0.0",
+    "@testing-library/user-event": "^14.5.0",
+    "@types/react": "^18.3.0",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.0",
+    "jsdom": "^24.0.0",
+    "typescript": "^5.4.0",
+    "vite": "^5.4.0",
+    "vitest": "^1.0.0"
+  }
+}

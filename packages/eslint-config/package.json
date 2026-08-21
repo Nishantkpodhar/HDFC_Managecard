@@ -1,0 +1,30 @@
+{
+  "name": "@banking360/eslint-config",
+  "version": "1.0.0",
+  "private": true,
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "react.js",
+    "node.js"
+  ],
+  "scripts": {
+    "lint": "eslint index.js react.js node.js --ext .js,.ts,.tsx"
+  },
+  "peerDependencies": {
+    "eslint": "^8.57.0",
+    "typescript": "^5.4.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "eslint-plugin-react": "^7.34.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-tailwindcss": "^4.3.0",
+    "typescript": "^5.4.0"
+  }
+}

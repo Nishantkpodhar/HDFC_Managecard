@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: banking360-ingress
+  namespace: banking360
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: banking360.local
+      http:
+        paths:
+          - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: api-gateway
+                port:
+                  number: 8080
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: customer-shell
+                port:
+                  number: 80

@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: banking360-config
+  namespace: banking360
+data:
+  SPRING_PROFILES_ACTIVE: "dev"
+  SERVICE_IDENTITY_URL: "http://identity-service.banking360.svc.cluster.local:8081"
+  SERVICE_CUSTOMER_URL: "http://customer-service.banking360.svc.cluster.local:8082"
+  SERVICE_PRODUCT_URL: "http://product-service.banking360.svc.cluster.local:8083"
+  SERVICE_CARD_URL: "http://card-service.banking360.svc.cluster.local:8084"
+  SERVICE_TRANSACTION_URL: "http://transaction-service.banking360.svc.cluster.local:8085"
+  SERVICE_PAYMENT_URL: "http://payment-service.banking360.svc.cluster.local:8086"
+  SERVICE_LEDGER_URL: "http://ledger-service.banking360.svc.cluster.local:8087"
+  SERVICE_REWARD_URL: "http://reward-service.banking360.svc.cluster.local:8088"
+  SERVICE_EMI_URL: "http://emi-service.banking360.svc.cluster.local:8089"
+  SERVICE_LOAN_URL: "http://loan-service.banking360.svc.cluster.local:8090"
+  SERVICE_FASTAG_URL: "http://fastag-service.banking360.svc.cluster.local:8091"
+  SERVICE_OFFER_URL: "http://offer-service.banking360.svc.cluster.local:8092"
+  SERVICE_NOTIFICATION_URL: "http://notification-service.banking360.svc.cluster.local:8093"
+  SERVICE_SERVICE_URL: "http://service-request-service.banking360.svc.cluster.local:8094"
+  SERVICE_CONFIGURATION_URL: "http://configuration-service.banking360.svc.cluster.local:8095"
+  SERVICE_FEATURE_URL: "http://feature-flag-service.banking360.svc.cluster.local:8096"
+  SERVICE_AUDIT_URL: "http://audit-service.banking360.svc.cluster.local:8097"
+  SERVICE_CMS_URL: "http://cms-service.banking360.svc.cluster.local:8098"
+  SERVICE_ADMIN_URL: "http://admin-service.banking360.svc.cluster.local:8099"
+  SERVICE_REPORTING_URL: "http://reporting-service.banking360.svc.cluster.local:8100"

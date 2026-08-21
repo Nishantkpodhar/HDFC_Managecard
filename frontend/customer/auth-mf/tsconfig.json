@@ -1,0 +1,13 @@
+{
+  "extends": "@banking360/tsconfig/react.json",
+    "compilerOptions": {
+      "baseUrl": ".",
+      "paths": {
+        "@/*": ["src/*"]
+      },
+      "lib": ["ES2020", "DOM", "DOM.Iterable"],
+      "ignoreDeprecations": "5.0"
+    },
+  "include": ["src/**/*", "vite.config.ts"],
+  "exclude": ["src/**/*.test.ts", "src/**/*.test.tsx"]
+}

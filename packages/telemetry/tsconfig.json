@@ -1,0 +1,8 @@
+{
+  "extends": "@banking360/tsconfig/react",
+  "compilerOptions": {
+    "types": ["node"],
+    "lib": ["ES2020", "DOM", "DOM.Iterable"]
+  },
+  "include": ["src/**/*"]
+}

@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "jsx": "react-jsx",
+    "strict": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "noEmit": true,
+    "baseUrl": ".",
+    "paths": {
+      "@banking360/ui": ["packages/ui/src"],
+      "@banking360/design-system": ["packages/design-system/src"],
+      "@banking360/shared-types": ["packages/shared-types/src"],
+      "@banking360/api-contracts": ["packages/api-contracts/src"],
+      "@banking360/auth-client": ["packages/auth-client/src"],
+      "@banking360/feature-flags": ["packages/feature-flags/src"],
+      "@banking360/frontend-events": ["packages/frontend-events/src"],
+      "@banking360/telemetry": ["packages/telemetry/src"],
+      "@banking360/shared-utils": ["packages/shared-utils/src"]
+    },
+    "types": ["vitest/globals", "@testing-library/jest-dom", "node"]
+  },
+  "include": [
+    "packages/**/src",
+    "frontend/**/src",
+    "frontend/**/vitest.setup.ts",
+    "frontend/**/vitest.config.ts",
+    "frontend/**/vite.config.ts"
+  ],
+  "exclude": ["node_modules", "dist", "build", "**/node_modules/**"]
+}

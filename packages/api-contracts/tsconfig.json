@@ -1,0 +1,7 @@
+{
+  "extends": "@banking360/tsconfig/base",
+  "compilerOptions": {
+    "types": ["node"]
+  },
+  "include": ["src/**/*"]
+}

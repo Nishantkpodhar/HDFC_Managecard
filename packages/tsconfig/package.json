@@ -1,0 +1,15 @@
+{
+  "name": "@banking360/tsconfig",
+  "version": "1.0.0",
+  "private": true,
+  "main": "index.json",
+  "files": [
+    "base.json",
+    "react.json",
+    "node.json",
+    "library.json"
+  ],
+  "devDependencies": {
+    "typescript": "^5.4.0"
+  }
+}

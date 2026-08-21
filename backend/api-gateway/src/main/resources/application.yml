@@ -1,0 +1,33 @@
+server:
+  port: ${SERVER_PORT:8080}
+
+app:
+  jwt:
+    secret: ${APP_JWT_SECRET:development-only-secret-development-only-secret-key}
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      httpclient:
+        connect-timeout: 2000
+        response-timeout: 30s
+      # Routes are defined deterministically in RouteConfig.java (RouteLocator
+      # bean) so they are version-independent and externalised via service.*.
+      discovery:
+        locator:
+          enabled: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,gateway
+  endpoint:
+    health:
+      show-details: always
+
+logging:
+  level:
+    com.banking360.gateway: INFO

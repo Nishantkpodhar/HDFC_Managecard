@@ -1,0 +1,61 @@
+# -----------------------------
+# OS / Editor
+# -----------------------------
+.DS_Store
+.AppleDouble
+Thumbs.db
+*.swp
+*.swo
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.iml
+
+# -----------------------------
+# Node / pnpm (frontend)
+# -----------------------------
+node_modules/
+.pnpm-store/
+dist/
+build/
+.cache/
+.turbo/
+coverage/
+*.tsbuildinfo
+.eslintcache
+.vite/
+
+# -----------------------------
+# Java / Maven (backend)
+# -----------------------------
+target/
+!**/src/main/resources/**/target/
+*.jar
+*.war
+*.class
+.mvn/
+mvnw.cmd
+
+# -----------------------------
+# Logs / runtime artifacts
+# -----------------------------
+*.log
+logs/
+nohup.out
+admin-frontend.log
+backend-cluster-launch.log
+
+# -----------------------------
+# Secrets / env
+# -----------------------------
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# -----------------------------
+# Misc scratch
+# -----------------------------
+task_progress.txt
+.DS_Store

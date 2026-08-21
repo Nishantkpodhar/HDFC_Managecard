@@ -1,0 +1,22 @@
+{
+  "name": "@banking360/api-contracts",
+  "version": "1.0.0",
+  "private": true,
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "build": "tsc --noEmit",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src --ext .ts"
+  },
+  "devDependencies": {
+    "@banking360/eslint-config": "workspace:*",
+    "@banking360/shared-types": "workspace:*",
+    "@banking360/tsconfig": "workspace:*",
+    "@types/node": "^26.2.0",
+    "typescript": "^5.4.0"
+  }
+}

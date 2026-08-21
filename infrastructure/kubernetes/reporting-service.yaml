@@ -1,0 +1,83 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: reporting-service
+  namespace: banking360
+  labels:
+    app: reporting-service
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: reporting-service
+  template:
+    metadata:
+      labels:
+        app: reporting-service
+    spec:
+      serviceAccountName: banking360-sa
+      containers:
+        - name: reporting-service
+          image: banking360/reporting-service:latest
+          ports:
+            - containerPort: 8100
+          env:
+            - name: SERVER_PORT
+              value: "8100"
+          readinessProbe:
+            httpGet:
+              path: /actuator/health
+              port: 8100
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          resources:
+            requests:
+              cpu: 100m
+              memory: 256Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: reporting-service
+  namespace: banking360
+spec:
+  selector:
+    app: reporting-service
+  ports:
+    - port: 8100
+      targetPort: 8100
+  type: ClusterIP
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: reporting-service-hpa
+  namespace: banking360
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: reporting-service
+  minReplicas: 2
+  maxReplicas: 6
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 70
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: reporting-service-pdb
+  namespace: banking360
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: reporting-service

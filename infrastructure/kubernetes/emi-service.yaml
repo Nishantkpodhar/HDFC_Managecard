@@ -1,0 +1,83 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: emi-service
+  namespace: banking360
+  labels:
+    app: emi-service
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: emi-service
+  template:
+    metadata:
+      labels:
+        app: emi-service
+    spec:
+      serviceAccountName: banking360-sa
+      containers:
+        - name: emi-service
+          image: banking360/emi-service:latest
+          ports:
+            - containerPort: 8089
+          env:
+            - name: SERVER_PORT
+              value: "8089"
+          readinessProbe:
+            httpGet:
+              path: /actuator/health
+              port: 8089
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          resources:
+            requests:
+              cpu: 100m
+              memory: 256Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: emi-service
+  namespace: banking360
+spec:
+  selector:
+    app: emi-service
+  ports:
+    - port: 8089
+      targetPort: 8089
+  type: ClusterIP
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: emi-service-hpa
+  namespace: banking360
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: emi-service
+  minReplicas: 2
+  maxReplicas: 6
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 70
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: emi-service-pdb
+  namespace: banking360
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: emi-service

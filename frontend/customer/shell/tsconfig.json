@@ -1,0 +1,21 @@
+{
+    "extends": "@banking360/tsconfig/react",
+    "compilerOptions": {
+      "paths": {
+        "customer_auth_mf/App": ["../auth-mf/src/App"],
+        "customer_dashboard_mf/App": ["../dashboard-mf/src/App"],
+        "customer_cards_mf/App": ["../cards-mf/src/App"],
+        "customer_transactions_mf/App": ["../transactions-mf/src/App"],
+        "customer_payments_mf/App": ["../payments-mf/src/App"],
+        "customer_rewards_mf/App": ["../rewards-mf/src/App"],
+        "customer_emi_mf/App": ["../emi-mf/src/App"],
+        "customer_loans_mf/App": ["../loans-mf/src/App"],
+        "customer_fastag_mf/App": ["../fastag-mf/src/App"],
+        "customer_offers_mf/App": ["../offers-mf/src/App"],
+        "customer_profile_mf/App": ["../profile-mf/src/App"],
+        "customer_notifications_mf/App": ["../notifications-mf/src/App"],
+        "customer_support_mf/App": ["../support-mf/src/App"]
+      }
+    },
+    "include": ["src/**/*", "vite.config.ts"]
+}

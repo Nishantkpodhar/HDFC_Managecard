@@ -1,0 +1,27 @@
+{
+  "extends": "@banking360/tsconfig/react",
+  "compilerOptions": {
+    "paths": {
+      "admin_dashboard_mf/App": ["../dashboard-mf/src/App"],
+      "admin_customers_mf/App": ["../customers-mf/src/App"],
+      "admin_cards_mf/App": ["../cards-mf/src/App"],
+      "admin_transactions_mf/App": ["../transactions-mf/src/App"],
+      "admin_payments_mf/App": ["../payments-mf/src/App"],
+      "admin_ledger_mf/App": ["../ledger-mf/src/App"],
+      "admin_rewards_mf/App": ["../rewards-mf/src/App"],
+      "admin_emi_mf/App": ["../emi-mf/src/App"],
+      "admin_loans_mf/App": ["../loans-mf/src/App"],
+      "admin_fastag_mf/App": ["../fastag-mf/src/App"],
+      "admin_offers_mf/App": ["../offers-mf/src/App"],
+      "admin_cms_mf/App": ["../cms-mf/src/App"],
+      "admin_users_mf/App": ["../users-mf/src/App"],
+      "admin_roles_mf/App": ["../roles-mf/src/App"],
+      "admin_permissions_mf/App": ["../permissions-mf/src/App"],
+      "admin_configuration_mf/App": ["../configuration-mf/src/App"],
+      "admin_feature_flags_mf/App": ["../feature-flags-mf/src/App"],
+      "admin_audit_mf/App": ["../audit-mf/src/App"],
+      "admin_system_health_mf/App": ["../system-health-mf/src/App"]
+    }
+  },
+  "include": ["src/**/*", "vite.config.ts"]
+}

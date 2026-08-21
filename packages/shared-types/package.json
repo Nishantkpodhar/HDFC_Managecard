@@ -1,0 +1,35 @@
+{
+  "name": "@banking360/shared-types",
+  "version": "1.0.0",
+  "private": true,
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./customer": "./src/customer.ts",
+    "./card": "./src/card.ts",
+    "./transaction": "./src/transaction.ts",
+    "./payment": "./src/payment.ts",
+    "./reward": "./src/reward.ts",
+    "./emi": "./src/emi.ts",
+    "./loan": "./src/loan.ts",
+    "./fastag": "./src/fastag.ts",
+    "./offer": "./src/offer.ts",
+    "./notification": "./src/notification.ts",
+    "./profile": "./src/profile.ts",
+    "./common": "./src/common.ts",
+    "./admin": "./src/admin.ts",
+    "./events": "./src/events.ts",
+    "./auth": "./src/auth.ts"
+  },
+  "scripts": {
+    "build": "tsc --noEmit",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src --ext .ts"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0",
+    "@banking360/tsconfig": "workspace:*",
+    "@banking360/eslint-config": "workspace:*"
+  }
+}
