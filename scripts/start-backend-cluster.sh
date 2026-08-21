@@ -35,9 +35,9 @@ reporting-service|reporting_db"
 echo "== Creating databases on ${DB_HOST}:${DB_PORT} =="
 echo "$PAIRS" | while IFS='|' read -r svc db; do
   [ -z "$svc" ] && continue
-  exists=$(PGPASSWORD="$DB_PASS" psql -h "$DB_HOST" -p "$DB_PORT" -U "$DB_USER" -tAc "SELECT 1 FROM pg_database WHERE datname='$db'" 2>/dev/null)
+  exists=$(PGPASSWORD="$DB_PASS" psql -h "$DB_HOST" -p "$DB_PORT" -U "$DB_USER" -d postgres -tAc "SELECT 1 FROM pg_database WHERE datname='$db'" 2>/dev/null)
   if [ "$exists" != "1" ]; then
-    PGPASSWORD="$DB_PASS" psql -h "$DB_HOST" -p "$DB_PORT" -U "$DB_USER" -c "CREATE DATABASE $db" >/dev/null 2>&1 && echo "created $db" || echo "FAILED create $db"
+    PGPASSWORD="$DB_PASS" psql -h "$DB_HOST" -p "$DB_PORT" -U "$DB_USER" -d postgres -c "CREATE DATABASE $db" >/dev/null 2>&1 && echo "created $db" || echo "FAILED create $db"
   else
     echo "exists $db"
   fi
@@ -55,7 +55,7 @@ echo "$PAIRS" | while IFS='|' read -r svc db; do
   echo "started $svc (pid $!) -> $DB_URL"
 done
 
-GW_JAR=$(ls "$ROOT"/backend/api-gateway/target/api-gateway*.jar 2>/dev/null | head -1)
+GW_JAR="$ROOT/backend/api-gateway/target/api-gateway.jar"
 if [ -n "$GW_JAR" ] && [ -f "$GW_JAR" ]; then
   nohup env DB_URL="jdbc:postgresql://${DB_HOST}:${DB_PORT}/identity_db" DB_USERNAME="$DB_USER" DB_PASSWORD="$DB_PASS" \
     SPRING_DATASOURCE_HIKARI_MAXIMUM_POOL_SIZE=4 \
